@@ -1,0 +1,21 @@
+<script>
+(function () {
+
+    const PASS = "yogi123"; // change this
+
+    const isAuth = sessionStorage.getItem("auth_ok");
+
+    if (isAuth !== "true") {
+
+        const userPass = prompt("Enter Password:");
+
+        if (userPass === PASS) {
+            sessionStorage.setItem("auth_ok", "true");
+        } else {
+            document.body.innerHTML = "<h2>Access Denied</h2>";
+            throw new Error("Blocked");
+        }
+    }
+
+})();
+</script>
